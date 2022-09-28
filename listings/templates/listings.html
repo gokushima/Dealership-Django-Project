@@ -1,0 +1,54 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>Car Sale</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Add new car below </h1>
+          <a class="fs-2" href = '/create'>link</a>
+        </div>
+      </div>
+    </section>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1">     
+          {% for listing in listings %}
+          
+            <div class="card " style="width: 18rem;">
+            <img src='{{ listing.image.url }}' class="card-img-top" width="100%" height="160px">
+              <div class="card-body">
+              <h5 class="card-title"><b>{{listing.name }}</b></h5>
+              <p class="card-text"><b>{{ listing.brand }}</b></p>
+              <p class="card-text">{{ listing.description }}</p>
+              <p class="card-text"><b>Milage in km:</b> {{ listing.milage }}</p>
+              <p class="card-text"style="color:#4CBB17;"><b>Price:</b> {{ listing.price }}</b>$</b></p>
+              <a href ='listing/{{ listing.id }}' class="btn btn-primary">Edit</a>
+            </div>
+        </div>
+         
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>  
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1"><b>David V.</b></p>
+      <p class="mb-0">Lab made with Bootstrap and Django. 2022  </p>
+    </div>
+  </footer>      
+    </body>
+  </html>
+  
